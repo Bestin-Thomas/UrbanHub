@@ -185,6 +185,7 @@ class _UserDataPageState extends State<UserDataPage> {
                       child: Text('Edit Profile',
                       style: TextStyle(
                         color: Colors.white,
+                          fontFamily: 'Inter',
                         fontSize: 20
                       ),),
                     )
@@ -232,6 +233,7 @@ class _UserDataPageState extends State<UserDataPage> {
                         child: Text('My Package',
                           style: TextStyle(
                               color: Colors.white,
+                              fontFamily: 'Inter',
                               fontSize: 20
                           ),),
                       )
@@ -275,6 +277,7 @@ class _UserDataPageState extends State<UserDataPage> {
                         child: Text('Change Mobile',
                           style: TextStyle(
                               color: Colors.white,
+                              fontFamily: 'Inter',
                               fontSize: 20
                           ),),
                       )

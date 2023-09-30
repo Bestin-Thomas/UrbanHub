@@ -82,6 +82,9 @@ flutter:
     - family: Monument Extended
       fonts:
         - asset: assets/fonts/MonumentExtended-Regular.otf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
