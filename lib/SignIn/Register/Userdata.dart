@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:urbanhub/Custom/Button.dart';
+import 'package:urbanhub/Custom/Paint.dart';
 import 'package:urbanhub/SignIn/Register/SignIn.dart';
 
 import 'Register.dart';
@@ -13,7 +14,7 @@ class UserDataPage extends StatefulWidget {
 
 class _UserDataPageState extends State<UserDataPage> {
 
-  int _currentIndex=0;
+  late int _currentIndex;
 
   var height;
   var width;
@@ -28,6 +29,7 @@ class _UserDataPageState extends State<UserDataPage> {
       number = prefs.getString('number') ?? '';
       email = prefs.getString('email') ?? '';
       age = prefs.getInt('age') ?? 0;
+      _currentIndex=0;
     });
   }
 
@@ -281,7 +283,7 @@ class _UserDataPageState extends State<UserDataPage> {
               ),
             ),
             SizedBox(
-              height: height*.25,
+              height: height*.2353,
             ),
             Container(
               height: 55,
@@ -307,73 +309,74 @@ class _UserDataPageState extends State<UserDataPage> {
               ),
             ),
             SizedBox(
-              height: height*.019,
+              height: height*.05,
             ),
-            Container(
-              height: 60, // Set t
+            Expanded(
               child: Row(
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: Container( // Replace with your image path
-                      width: 38,
-                      height: 52,
-                      // margin: EdgeInsets.only(top: height*0.054),
-                      child: InkWell(
-                        onTap: () {
-                          print('Rides');
-                          // Add your button's action here
-                        },
-                        child: Image.asset(
-                          'assets/icons/rides.png', // Replace with your image path
-                          width: 38,
-                          height: 52,
-                          fit: BoxFit.fitHeight,
-                        ),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          CustomButtonWithIconText(
+                            image: Image.asset('assets/icons/rides.png',width: 25,height: 23,),
+                            child: Text('Rides',style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Monument Extended',
+                                color: Colors.white
+                            ),),
+                            onPressed: () {
+                              _currentIndex=1;
+                              // Add your button click logic here
+                              print('Button Clicked');
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container( // Replace with your image path
-                      width: 42,
-                      height: 53,
-                      // margin: EdgeInsets.only(top: height*0.054),
-                      child: InkWell(
-                        onTap: () {
-
-                          // Add your button's action here
-
-                          print('Home');
-                        },
-                        child: Image.asset(
-                          'assets/icons/home.png', // Replace with your image path
-                          width: 42,
-                          height: 53,
-                          fit: BoxFit.fitHeight,
-                        ),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          CustomButtonWithIconText(
+                            image: Image.asset('assets/icons/home.png',width: 25,height: 25,),
+                            child: Text('Home',style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Monument Extended',
+                                color: Colors.white
+                            ),),
+                            onPressed: () {
+                              _currentIndex=0;
+                              // Add your button click logic here
+                              print('Button Clicked');
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container( // Replace with your image path
-                      width: 65,
-                      height: 55,
-                      // margin: EdgeInsets.only(top: height*0.054),
-                      child: InkWell(
-                        onTap: () {
-
-                          // Add your button's action here
-
-                          print('Booking');
-                        },
-                        child: Image.asset(
-                          'assets/icons/booking.png', // Replace with your image path
-                          width: 65,
-                          height: 55,
-                          fit: BoxFit.fitHeight,
-                        ),
+                    child: Center(
+                      child: Column(
+                        children: [
+                          CustomButtonWithIconText(
+                            image: Image.asset('assets/icons/booking.png',width: 23,height: 23,),
+                            child: Text('Booking',style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Monument Extended',
+                              color: Colors.white
+                            ),),
+                            onPressed: () {
+                              _currentIndex=2;
+                              // Add your button click logic here
+                              print('Button Clicked');
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ),

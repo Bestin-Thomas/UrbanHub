@@ -283,9 +283,12 @@ class _registerState extends State<register> {
               Container(
                 width: 126,
                 height: 55,
+                padding: EdgeInsets.only(left: width*.325,right:width*.325),
                 // margin: EdgeInsets.only(top: height*0.054),
                   child: FuturisticButton(
+                    width: height*.11,
                     onPressed: () async {
+                      print(height);
                       name=firstnameController.text+' '+lastnameController.text;
                       final prefs = await SharedPreferences.getInstance();
                       await prefs.setString('name', name);

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Paint.dart';
+
 
 
 class FuturisticButton extends StatelessWidget {
@@ -45,7 +47,7 @@ class FuturisticButton extends StatelessWidget {
               child: Container(
                 width: height!*.22,
                 height: (height!*.78),
-                color: buttonColor!,
+                color: buttonColor,
               ),
             ),
             Positioned(
@@ -55,7 +57,7 @@ class FuturisticButton extends StatelessWidget {
               child: Container(
                 width: height!*.22,
                 height: height!,
-                color: buttonColor!,
+                color: buttonColor,
               ),
             ),
             Positioned(
@@ -66,7 +68,7 @@ class FuturisticButton extends StatelessWidget {
                 height: height!*.22,
                 child: CustomPaint(
                   size: Size(height!*.22, height!*.22),
-                  painter: TrianglePainter(buttonColor!),
+                  painter: TrianglePainter(buttonColor),
                 ),
               ),
             ),
@@ -83,28 +85,46 @@ class FuturisticButton extends StatelessWidget {
 }
 
 
-class TrianglePainter extends CustomPainter {
-  final Color triangleColor;
+class CustomButtonWithIconText extends StatelessWidget {
+  late final Widget image;
+  final Color buttonColor;
+  late final Widget child;
+  final VoidCallback onPressed;
+  final double?width;
+  final double?height;
 
-  TrianglePainter(this.triangleColor);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = triangleColor
-      ..style = PaintingStyle.fill;
-
-    final path = Path()
-      ..moveTo(0, 0)
-      ..lineTo(size.width, 0)
-      ..lineTo(0, size.height)
-      ..close();
-
-    canvas.drawPath(path, paint);
-  }
+  CustomButtonWithIconText({
+    required this.image,
+    this.buttonColor=Colors.transparent,
+    required this.child,
+    required this.onPressed,
+    this.width=65,
+    this.height=50,
+  });
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false;
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        color: buttonColor,
+        height: height,
+        width: width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Center(
+                child: image, // Display the provided child widget
+              ),
+            SizedBox(height: 10),
+            Center(
+                child: child, // Display the provided child widget
+              ),
+          ],
+        ),
+      ),
+    );
   }
 }
+
